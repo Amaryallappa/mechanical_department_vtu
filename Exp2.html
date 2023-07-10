@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Corner - Mechanical Department VTU Belagavi</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Student Corner - Mechanical Department VTU Belagavi</h1>
+  </header>
+
+  <nav>
+    <img src="logo.png" alt="Department Logo">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="faculty.html">Faculty</a></li>
+      <li><a href="labs.html">Laboratories</a></li>
+      <li><a href="student_corner.html">Student Corner</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+ <img src="2.png" alt="Image">
+<p>/NOPR   ! Suppress printing of UNDO process 
+/PMACRO ! Echo following commands to log    
+FINISH  ! Make sure we are at BEGIN level   
+/CLEAR,NOSTART  ! Clear model since no SAVE found   
+! WE SUGGEST YOU REMOVE THIS LINE AND THE FOLLOWING STARTUP LINES   
+!*  
+!*  
+/NOPR   
+KEYW,PR_SET,1   
+KEYW,PR_STRUC,1 
+KEYW,PR_THERM,0 
+KEYW,PR_FLUID,0 
+KEYW,PR_ELMAG,0 
+KEYW,MAGNOD,0   
+KEYW,MAGEDG,0   
+KEYW,MAGHFE,0   
+KEYW,MAGELC,0   
+KEYW,PR_MULTI,0 
+/GO 
+!*  
+!*  
+/PREP7  
+!*  
+ET,1,LINK180
+!*  
+!*  
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,EX,1,,2e5
+MPDATA,PRXY,1,,0.3  
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,EX,2,,0.7e5  
+MPDATA,PRXY,2,,0.1  
+!*  
+!*  
+SECTYPE,2,LINK, ,small  
+SECDATA,600,
+SECCONTROL,0,0  
+!*  
+!*  
+!*  
+SECTYPE,1,LINK, ,big
+SECDATA,900,
+SECCONTROL,0,0  
+!*  
+N,1,0,,,,,, 
+N,2,600,,,,,,   
+N,3,1100,,,,,,  
+TYPE,   1   
+MAT,       1
+REAL,   
+ESYS,       0   
+SECNUM,   1 
+TSHAP,LINE  
+!*  
+FLST,2,2,1  
+FITEM,2,1   
+FITEM,2,2   
+E,P51X  
+TYPE,   1   
+MAT,       2
+REAL,   
+ESYS,       0   
+SECNUM,   2 
+TSHAP,LINE  
+!*  
+FLST,2,2,1  
+FITEM,2,2   
+FITEM,2,3   
+E,P51X  
+!*  
+/SHRINK,0   
+/ESHAPE,1.0 
+/EFACET,1   
+/RATIO,1,1,1
+/CFORMAT,32,0   
+/REPLOT 
+!*  
+GPLOT   
+/VIEW,1,1,1,1   
+/ANG,1  
+/REP,FAST   
+FLST,2,1,1,ORDE,1   
+FITEM,2,1   
+!*  
+/GO 
+D,P51X,ALL, , , , , , , , , ,   
+FLST,2,1,1,ORDE,1   
+FITEM,2,3   
+!*  
+/GO 
+F,P51X,FX,500   
+FINISH  
+/SOL
+/STATUS,SOLU
+SOLVE   
+FINISH  
+/POST1  
+!*  
+PRNSOL,U,X  
+PRNSOL,S,COMP   
+set 
+!*  
+PRNSOL,S,COMP   
+PRNSOL,EPEL,COMP
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+!*  
+/EFACET,1   
+PLNSOL, S,X, 0,1.0  
+/EFACET,1   
+PLNSOL, U,X, 0,1.0  
+)/GOP    ! Resume printing after UNDO process   
+)! We suggest a save at this point  
+
+
+</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
